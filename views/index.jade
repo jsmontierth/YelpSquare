@@ -1,0 +1,11 @@
+extends layout
+
+block content
+	h1 Foursquare
+	p Welcome to Hell
+
+	script(type='text/javascript').
+		var count = !{JSON.stringify(count)}
+		var results = !{JSON.stringify(results)}
+		console.log(count);
+		console.log(results);
