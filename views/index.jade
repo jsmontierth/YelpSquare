@@ -1,11 +1,23 @@
 extends layout
 
 block content
-	h1 Foursquare
-	p Welcome to Hell
+	h1 YelpSquare
 
 	script(type='text/javascript').
-		var count = !{JSON.stringify(count)}
+		var pageCount = !{JSON.stringify(pageCount)}
 		var results = !{JSON.stringify(results)}
 		console.log(count);
 		console.log(results);
+
+	each result in results
+		h2= result.name
+		p= result.address
+		p= result.zip
+		br
+
+	if paginate.hasPreviousPages || paginate.hasNextPages(pageCount)
+		if paginate.hasPreviousPages
+			a(href=paginate.href(true)).prev Previous
+			br
+		if paginate.hasNextPages(pageCount)
+			a(href=paginate.href()).next Next
